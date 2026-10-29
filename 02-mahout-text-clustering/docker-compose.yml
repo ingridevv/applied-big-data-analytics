@@ -1,0 +1,17 @@
+services:
+
+  mahout:
+    build:
+      context: . 
+    container_name: mahout
+    networks:
+      - hadoop-net
+    volumes:
+     - ./data:/data
+    stdin_open: true
+    tty: true
+
+networks:
+  hadoop-net:
+    external: true
+  

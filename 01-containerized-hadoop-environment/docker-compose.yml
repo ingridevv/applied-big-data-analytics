@@ -2,6 +2,8 @@ services:
   namenode:
     image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
     container_name: namenode
+    networks:
+    - hadoop-net
     ports:
       - "9870:9870"
     volumes:
@@ -12,6 +14,8 @@ services:
   datanode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
     container_name: datanode
+    networks:
+    - hadoop-net
     ports:
       - "9864:9864"
     volumes:
@@ -24,6 +28,8 @@ services:
   resourcemanager:
     image: bde2020/hadoop-resourcemanager:2.0.0-hadoop3.2.1-java8
     container_name: resourcemanager
+    networks:
+    - hadoop-net
     ports:
       - "8088:8088"
     env_file:
@@ -34,7 +40,13 @@ services:
   nodemanager:
     image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
     container_name: nodemanager
+    networks:
+    - hadoop-net
     env_file:
       - ./hadoop.env
     depends_on:
       - resourcemanager
+
+networks:
+    hadoop-net:
+      name: hadoop-net

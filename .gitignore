@@ -1,2 +1,11 @@
-/01-containerized-hadoop-environment/hadoop.env
-/01-containerized-hadoop-environment/hdfs
+# Datasets
+data/
+
+# Hadoop local files
+hdfs/
+
+# Env files
+*.env
+
+# Temporary outputs
+*.log
