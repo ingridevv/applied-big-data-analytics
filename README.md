@@ -158,6 +158,7 @@ The system operates across two decoupled Compose stacks linked via shared bridge
 - **DNS Resolution**: the client resolves HDFS and YARN daemons via container hostnames (`hdfs://namenode:9000` and `resourcemanager:8032`) using Docker's internal DNS engine, eliminating static IP configurations.
 
 ## Cluster Initialization
+
 To spin up the core Hadoop infrastructure, execute:
 
 ```bash
@@ -179,6 +180,8 @@ docker exec -it namenode hdfs dfsadmin -report
 docker exec -it resourcemanager yarn node -list
 ```
 
+![Hadoop Cluster Startup](assets/screenshots/06-successful-hadoop.png)
+
 ## Pipeline Execution
 
 ### 1. Dataset Ingestion
@@ -190,6 +193,8 @@ docker exec -it mahout bash
 hdfs dfs -mkdir -p /data
 hdfs dfs -copyFromLocal /data/C50 /data/C50
 ```
+
+![HDFS Dataset Upload Verification](assets/screenshots/05-files-uploaded.png)
 
 ### 2. Automated Pipeline Execution
 
@@ -222,6 +227,8 @@ mahout seq2sparse \
 -o /train-sparse
 ```
 
+![HDFS Sparse Directory Structure](assets/screenshots/04-train-sparse.png)
+
 ### Apply K-Means clustering:
 ```bash
 mahout kmeans \
@@ -235,6 +242,8 @@ mahout kmeans \
 ```
 
 ## Mining Results
+![Mahout Clusterdump Term Extraction](assets/screenshots/03-clusterdump-analysis.png)
+
 ```bash
 Number of clusters: 10
 Algorithm: K-Means
