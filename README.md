@@ -1,4 +1,4 @@
-# Applied Big Data Analytics: An Empirical Analysis of Distributed Data Mining with Apache Mahout
+# Applied Big Data Analytics: Distributed Text Mining with Hadoop and Apache Mahout
 
 This project containerizes an **Apache Hadoop 3.2.1** (HDFS / YARN) cluster and **Apache Mahout 0.13.0** execution client to process the **Reuters-50-50 dataset** using distributed sequence conversions, TF-IDF vectorization, and K-Means clustering.   Developed as a practical project for the **Data Mining** curriculum in **Computer Engineering**, the project evaluates how classical machine learning workflows interact with distributed storage and resource management frameworks.
 
